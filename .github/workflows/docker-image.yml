@@ -28,5 +28,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/nextjs-docker-starter:latest
-            ghcr.io/${{ github.repository_owner }}/nextjs-docker-starter:${{ github.sha }}
+            ghcr.io/sagolsa78/nextjs-docker-starter:latest
+            ghcr.io/sagoolsa78/nextjs-docker-starter:${{ github.sha }}

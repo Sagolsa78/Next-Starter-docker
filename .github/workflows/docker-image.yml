@@ -29,4 +29,4 @@ jobs:
           push: true
           tags: |
             ghcr.io/sagolsa78/nextjs-docker-starter:latest
-            ghcr.io/sagoolsa78/nextjs-docker-starter:${{ github.sha }}
+            ghcr.io/sagolsa78/nextjs-docker-starter:${{ github.sha }}

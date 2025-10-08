@@ -1,36 +1,130 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 DevOps Assessment - Next.js Containerization & Kubernetes Deployment
 
-## Getting Started
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 📋 Objective
+
+This project demonstrates the complete DevOps workflow for a **Next.js** application:
+
+- ✅ Containerization with **Docker**
+- ✅ Automated image build & push using **GitHub Actions**
+- ✅ Deployment on **Kubernetes (Minikube)**
+- ✅ CI/CD best practices with **GitHub Container Registry (GHCR)**
+
+---
+
+## 🏗️ Project Structure
+
+
+```
+nextjs-starter/
+├── .github/
+│ └── workflows/
+│ └── main.yml # GitHub Actions workflow for CI/CD
+├── starter/
+│ ├── deployment.yaml # Kubernetes Deployment manifest
+│ └── service.yaml # Kubernetes Service manifest
+├── Dockerfile # Docker build configuration
+├── package.json
+├── next.config.js
+├── pages/
+├── public/
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ⚙️ Local Setup
 
-## Learn More
+### 1️⃣ Clone the Repository
+```bash
 
-To learn more about Next.js, take a look at the following resources:
+git clone https://github.com/Sagolsa78/Next-Starter-docker.git
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+cd nextjs-starter
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+npm install
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+npm run dev
+
+```
+
+
+## 🐳 Docker Setup
+
+# 1️⃣ Build the Docker Image
+
+```
+docker build -t nextjs-local:latest .
+
+
+```
+
+
+## 2️⃣ Run the Container
+
+```
+docker run -d -p 3000:3000 nextjs-local:latest
+
+
+
+Visit http://localhost:3000
+
+```
+
+
+
+
+## ☸️ Kubernetes Deployment (Minikube)
+
+
+# 1️⃣ Start Minikube
+
+```
+minikube start
+
+```
+# 2️⃣ Build Image for Minikube
+
+```
+eval $(minikube docker-env)
+docker build -t nextjs-local:latest .
+
+```
+
+# 3️⃣ Apply Manifests
+
+```
+kubectl apply -f starter/
+
+```
+
+# 4️⃣ Check Deployment
+
+```
+kubectl get pods
+kubectl get svc
+
+```
+
+# 5️⃣ Access the Application
+
+```
+minikube service nextjs-service
+```
+
+
+
+## 🧑‍💻 Author
+
+Name: Mohit Sahani
+Email: sahanimohit5ed@gmail.com
+
+GitHub: github.com/sagolsa78
+
+💡 This project demonstrates a full CI/CD DevOps pipeline — containerization, automation, and Kubernetes deployment.

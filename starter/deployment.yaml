@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nextjs-container
-        image:  ghcr.io/sagolsa78/nextjs-docker-starter:latest
+        image: nextjs-docker-starter:latest
         ports:
         - containerPort: 3000
         readinessProbe:
